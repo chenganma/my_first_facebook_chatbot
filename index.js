@@ -40,9 +40,7 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             text = event.message.text
             if (text === 'hi') {
-                "sender_action":"typing_on"
                 sendGenericMessage(sender)
-
                 continue
             }
             sendTextMessage(sender, "parrot1: " + text.substring(0, 200))
@@ -74,7 +72,7 @@ function sendTextMessage(sender, text) {
         json: {
             recipient: {id:sender},
             message: messageData,
-        }
+        }sender_action:"typing_on"
     }, function(error, response, body) {
         if (error) {
             console.log('Error sending messages: ', error)
