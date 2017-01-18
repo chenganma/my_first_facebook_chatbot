@@ -40,7 +40,9 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             text = event.message.text
             if (text === 'hi') {
+                "sender_action":"typing_on"
                 sendGenericMessage(sender)
+
                 continue
             }
             sendTextMessage(sender, "parrot1: " + text.substring(0, 200))
@@ -55,21 +57,13 @@ app.post('/webhook/', function (req, res) {
 })
 
 
-
-
 var token = "EAAagDQAbg3wBAMRVsuHvZCnbDxYZBAnZAh7k9ustn1ZBJxcbeuN8tD0ESUrJh3LuYvhpyZBL9pIGW0EMknUlkdgN43hOWLbLoDowSdZCtEJJGoWYKHtZCctZBmS7vrxG6OwtBdZCuI69NCT8pCt1v4HquDbvtPH24RCk5xNJQ79fBsQZDZD"
 
 // function to echo back messages - added by Stefan
 
 function sendTextMessage(sender, text) {
 
-    curl -X POST -H "Content-Type: application/json" -d '{
-  "recipient":{
-    "id":"USER_ID"
-  },
-  "sender_action":"typing_on"
-}' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAagDQAbg3wBAMRVsuHvZCnbDxYZBAnZAh7k9ustn1ZBJxcbeuN8tD0ESUrJh3LuYvhpyZBL9pIGW0EMknUlkdgN43hOWLbLoDowSdZCtEJJGoWYKHtZCctZBmS7vrxG6OwtBdZCuI69NCT8pCt1v4HquDbvtPH24RCk5xNJQ79fBsQZDZD"
-
+    
     messageData = {
         text:text
     }
