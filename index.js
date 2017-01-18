@@ -60,8 +60,6 @@ var token = "EAAagDQAbg3wBAMRVsuHvZCnbDxYZBAnZAh7k9ustn1ZBJxcbeuN8tD0ESUrJh3LuYv
 // function to echo back messages - added by Stefan
 
 function sendTextMessage(sender, text) {
-
-    
     messageData = {
         text:text
     }
@@ -72,8 +70,7 @@ function sendTextMessage(sender, text) {
         json: {
             recipient: {id:sender},
             message: messageData,
-            sender_action:"typing_on",
-        }
+        }sender_action: typing_on
     }, function(error, response, body) {
         if (error) {
             console.log('Error sending messages: ', error)
