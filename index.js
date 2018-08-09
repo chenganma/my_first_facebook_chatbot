@@ -47,7 +47,7 @@ app.post('/webhook/', function (req, res) {
                 sendTextMessage(sender, "Nice to meet you !!" )
                 continue
             }
-            sendTextMessage(sender, "me here: " + text.substring(0, 200))
+            sendTextMessage(sender, "me: " + text.substring(0, 200))
         }
         if (event.postback) {
             text = JSON.stringify(event.postback)
@@ -71,7 +71,7 @@ function sendTextMessage(sender, text) {
         qs: {access_token:token},
         method: 'POST',
         json: {
-            recipient: {id:sender.title},
+            recipient: {id:sender},
             message: messageData,
         }
     }, function(error, response, body) {
