@@ -71,7 +71,7 @@ function sendTextMessage(sender, text) {
         qs: {access_token:token},
         method: 'POST',
         json: {
-            recipient: sender,
+            recipient: {id:sender.title},
             message: messageData,
         }
     }, function(error, response, body) {
