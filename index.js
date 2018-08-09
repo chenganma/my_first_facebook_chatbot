@@ -47,7 +47,7 @@ app.post('/webhook/', function (req, res) {
                 sendTextMessage(sender, "Nice to meet you !!" )
                 continue
             }
-            sendTextMessage(sender, "me: " + text.substring(0, 200))
+            sendTextMessage(sender, "me here: " + text.substring(0, 200))
         }
         if (event.postback) {
             text = JSON.stringify(event.postback)
@@ -115,7 +115,7 @@ function sendGenericMessage(sender) {
                         "payload": "One day Chatbots will control the Internet of Things! You will be able to control your homes temperature with a text",
                     }, {
                         "type": "postback",
-                        //"title": "The Future",
+                        "title": "The Future",
                         "payload": "Chatbots are fun! One day your BFF might be a Chatbot",
                     }],
                 },  {
