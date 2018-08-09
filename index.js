@@ -43,6 +43,10 @@ app.post('/webhook/', function (req, res) {
                 sendGenericMessage(sender)
                 continue
             }
+            if (text === 'How are you') {
+                sendTextMessage(sender, "Nice to meet you !!" )
+                continue
+            }
             sendTextMessage(sender, "ccarrot: " + text.substring(0, 200))
         }
         if (event.postback) {
